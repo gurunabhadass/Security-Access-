@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102b45">
+<title>About AccessOne</title>
+<style>
+:root{color-scheme:dark;--bg:#071522;--card:#102b45;--line:#24445f;--cyan:#43d5ef;--muted:#a9bfd0;--white:#f5f9fc}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:linear-gradient(180deg,#0b2033,#06111d);font-family:Arial,Helvetica,sans-serif;color:var(--white)}
+.page{width:min(100%,520px);margin:0 auto;padding:18px 16px 30px}
+.top{display:flex;align-items:center;gap:12px;margin:4px 0 18px}
+.back{width:42px;height:42px;border:1px solid var(--line);border-radius:13px;background:#102b45;color:white;font-size:22px;cursor:pointer}
+h1{font-size:21px;margin:0;font-weight:700}
+.hero{padding:26px 18px 23px;text-align:center;border:1px solid #315875;border-radius:22px;background:radial-gradient(circle at 50% 0%,#1b527b 0,#123451 42%,#0d2237 100%);box-shadow:0 12px 30px #0005}
+.logo{width:76px;height:76px;margin:0 auto 13px;border-radius:22px;display:grid;place-items:center;background:linear-gradient(145deg,#28bce8,#1264b6);box-shadow:0 8px 24px #12a7e755;font-size:35px;font-weight:800}
+.hero h2{margin:0;font-size:27px;letter-spacing:.3px}.tag{margin:7px 0 0;color:#b8d8ea;font-size:12px}
+.card{margin-top:14px;padding:17px 16px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,#102b45,#0d2338)}
+.card h3{margin:0 0 12px;color:var(--cyan);font-size:12px;letter-spacing:1px}
+.row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:10px 0;border-bottom:1px solid #24445f;font-size:13px}
+.row:last-child{border-bottom:0;padding-bottom:0}.label{color:var(--muted)}.value{text-align:right;font-weight:600;overflow-wrap:anywhere}
+.copy{margin:0;color:#d2e0ea;font-size:13px;line-height:1.7}
+.footer{text-align:center;color:#7f9aaf;font-size:11px;padding:20px 0 4px}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="top">
+    <button class="back" type="button" onclick="history.back()" aria-label="Go back">‹</button>
+    <h1>About AccessOne</h1>
+  </header>
+
+  <section class="hero">
+    <div class="logo" aria-hidden="true">A1</div>
+    <h2>AccessOne</h2>
+    <p class="tag">Smart Face Recognition &amp; Access Control</p>
+  </section>
+
+  <section class="card">
+    <h3>APP INFORMATION</h3>
+    <div class="row"><span class="label">App Name</span><span class="value">AccessOne</span></div>
+    <div class="row"><span class="label">Version</span><span class="value">1.0.0</span></div>
+    <div class="row"><span class="label">Created Date</span><span class="value">01 November 2026</span></div>
+  </section>
+
+  <section class="card">
+    <h3>DEVELOPER INFORMATION</h3>
+    <div class="row"><span class="label">Developer</span><span class="value">Suva Oscar</span></div>
+    <div class="row"><span class="label">Contact &amp; Help</span><span class="value"><a href="mailto:connectindustrial8@gmail.com" style="color:#43d5ef;text-decoration:none">connectindustrial8@gmail.com</a></span></div>
+  </section>
+
+  <section class="card">
+    <h3>PURPOSE OF ACCESSONE</h3>
+    <p class="copy">AccessOne is designed to help organizations manage employee entry and exit through face-based verification. The app provides employee registration, face scanning, daily IN/OUT records, failed-scan records, activity history, and access reports.</p>
+  </section>
+
+  <div class="footer">AccessOne · Version 1.0.0</div>
+</div>
+</body>
+</html>

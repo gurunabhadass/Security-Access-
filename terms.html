@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#081322">
+<title>Terms &amp; Conditions | AccessOne</title>
+<style>
+:root{--bg:#081322;--panel:#10243a;--line:#29445e;--txt:#eff7ff;--muted:#a0b3c8;--cyan:#5be0f2}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#173b60,transparent 48%),var(--bg);color:var(--txt);font-family:Arial,sans-serif;line-height:1.65}
+header{position:sticky;top:0;background:#081322ed;border-bottom:1px solid var(--line);padding:14px 18px;display:flex;align-items:center;gap:12px}
+.brand{font-size:21px;font-weight:800}.brand span{color:var(--cyan)}.back{width:38px;height:38px;border:1px solid var(--line);border-radius:11px;background:#142c46;color:white;font-size:20px}
+main{width:min(100% - 28px,780px);margin:24px auto 50px}.hero{padding:24px 20px;border:1px solid #315372;border-radius:20px;background:linear-gradient(135deg,#153a5a,#10243a)}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:1.8px;color:var(--cyan);text-transform:uppercase}h1{font-size:29px;line-height:1.2;margin:8px 0}.updated{font-size:12px;color:#b5c7d9}
+.notice{margin:16px 0;padding:13px 15px;border:1px solid #28577a;background:#0d2941;border-radius:13px;color:#c9e9ff;font-size:13px}
+article{margin-top:13px;padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}h2{font-size:16px;margin:0 0 9px;color:#8bdfff}
+p,ul{margin:7px 0;color:#d6e2ee;font-size:14px}ul{padding-left:20px}li{padding:3px 0}strong{color:white}footer{text-align:center;color:var(--muted);font-size:12px;padding:20px 4px}
+</style>
+</head>
+<body>
+<header><button class="back" onclick="history.length>1?history.back():location.href='./index.html'" aria-label="Go back">‹</button><div class="brand">Access<span>One</span></div></header>
+<main>
+<section class="hero"><div class="eyebrow">AccessOne • Usage Terms</div><h1>Terms &amp; Conditions</h1><div class="updated">Please read these terms before using AccessOne.</div></section>
+<div class="notice"><strong>Important:</strong> AccessOne is an employee face-verification and access-recording tool. The organization operating the app is responsible for deciding whether its use is lawful and appropriate at each workplace.</div>
+
+<article><h2>1. Acceptance and Authorized Use</h2><p>By accessing or using AccessOne, you agree to these Terms &amp; Conditions. AccessOne is intended for authorized employee registration, face verification, and recording of entry and exit activity. Use it only with permission from the organization responsible for the workplace and device.</p><p>Do not use the app to identify, monitor, or record a person without the required notice, authorization, and lawful basis.</p></article>
+
+<article><h2>2. Employee Registration and Face Data</h2><ul><li>Only authorized administrators should register, edit, or delete employee profiles.</li><li>Employee details and face-recognition data are stored locally in the browser/device storage used by AccessOne.</li><li>The administrator and operating organization are responsible for providing any required employee notice and obtaining consent or other legal authorization before capturing or using face data.</li><li>Protect the device from unauthorized access. People with access to the device or its browser data may be able to access locally stored information.</li></ul></article>
+
+<article><h2>3. Login and Logout Rules</h2><ul><li>The first successful Access scan records Login for that employee.</li><li>Logout is available only after at least 8 hours have elapsed from that employee's Login.</li><li>The next successful Access scan after the 8-hour waiting period records Logout.</li><li>Each employee's Login/Logout cycle is evaluated separately using that employee's registered ID.</li><li>Up to two successful Access scans are permitted per employee per calendar day. Further attempts show “Already Scanned” and are not added to Access history.</li><li>An attempt before the 8-hour waiting period ends does not create a successful Logout record.</li></ul><p>Keep the device date and time correct. Incorrect device time may affect timestamps and the 8-hour calculation.</p></article>
+
+<article><h2>4. Verification / Test Scan</h2><ul><li>Verification (Test Scan) checks whether a face matches a registered employee.</li><li>Verification scans do not create Login or Logout records and do not change the employee's Access status.</li><li>Verification can be used repeatedly and is not subject to the daily Access scan limit.</li><li>Only successful verification results are shown in the Verification list according to the current app configuration. Failed verification attempts are not included in that list.</li></ul></article>
+
+<article><h2>5. Access History and Reports</h2><ul><li>Successful and failed Access records are displayed separately and grouped by date.</li><li>History is retained locally until an authorized user clears/deletes application data or browser/device storage is removed.</li><li>Daily automatic reset and automatic midnight download are not part of the current system.</li><li>Date-wise records may be exported in Excel or PDF where those options are available.</li><li>Verification history is separate from Login/Logout history.</li></ul></article>
+
+<article><h2>6. Local Storage, Import and Export</h2><ul><li>Employee data is stored locally; the app does not require a central cloud database for local operation.</li><li>Export All Users creates a transfer file containing registered employee details, photos, and supported face-recognition descriptors.</li><li>Import All Users adds valid new users. Existing user IDs are skipped rather than overwritten by the import process.</li><li>Importing employee data does not synchronize live Login/Logout status, Access history, Activity history, or changes between devices.</li><li>Exported files may contain personal information and face-recognition data. Share them only with authorized recipients and securely delete unnecessary copies.</li><li>Browser storage cleanup, device failure, or loss of the device may result in data loss. Keep backups where required.</li></ul></article>
+
+<article><h2>7. Administrator Responsibilities</h2><ul><li>Protect the Admin password and restrict access to authorized personnel.</li><li>Maintain accurate employee details and registration records.</li><li>Ensure the camera, device, browser, date, and time are configured correctly.</li><li>Review records and exports before relying on them for payroll, attendance, disciplinary, or other official decisions.</li><li>Apply the organization's retention, privacy, security, and employee-data policies.</li></ul></article>
+
+<article><h2>8. Camera, Browser and Device Requirements</h2><p>Face verification requires a compatible camera, browser permissions, and the face-recognition resources used by the app. Camera access generally requires a secure context such as HTTPS or localhost. Some recognition resources may need an internet connection when first loaded. Availability and performance vary by device, browser, lighting, camera quality, and network conditions.</p></article>
+
+<article><h2>9. Accuracy and Availability</h2><p>Face matching is an automated aid and may produce false matches or fail to recognize a registered person. Do not use a scan result as the sole basis for a high-impact decision. Provide an appropriate manual verification or correction process.</p><p>No uninterrupted operation, error-free performance, or recovery of locally stored data is guaranteed. The organization should maintain an alternative access procedure if the device or app is unavailable.</p></article>
+
+<article><h2>10. Prohibited Activities</h2><ul><li>Do not bypass access rules, improperly alter records, or gain unauthorized administrator access.</li><li>Do not import or use data that you are not authorized to use.</li><li>Do not interfere with the app or device environment in a way that harms operation or security.</li></ul></article>
+
+<article><h2>11. Changes to These Terms</h2><p>These terms may be updated when AccessOne features or operating requirements change. The organization operating AccessOne should make the current version available and communicate material changes where required.</p></article>
+
+<article><h2>12. Contact and Organization Policy</h2><p>For questions about employee data, access decisions, data retention, or workplace use, contact the administrator or organization operating this AccessOne installation. These terms do not replace the organization's privacy notice or applicable legal requirements.</p></article>
+<footer>© AccessOne. Use only by authorized personnel.</footer>
+</main>
+</body>
+</html>

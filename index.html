@@ -1,0 +1,307 @@
+<!doctype html><html lang="en">
+    <head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"><meta name="theme-color" content="#081322"><title>AccessOne - Only Authorization Person</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<style>
+:root{--bg:#081322;--p:#10243a;--p2:#142c46;--line:#29445e;--txt:#eff7ff;--muted:#91a6bd;--blue:#279fff;--cyan:#5be0f2;--green:#22d6a2;--red:#ff627b}*{box-sizing:border-box}body{margin:0;overflow:hidden;background:radial-gradient(ellipse at 50% -10%,#173b60,transparent 48%),var(--bg);color:var(--txt);font-family:"DM Sans",sans-serif;padding-bottom:82px}button,input,select{font:inherit}button{border:0;color:white;cursor:pointer}header{height:64px;position:fixed;top:0;left:0;right:0;z-index:8;background:#081322ed;backdrop-filter:blur(15px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 18px}.logo{font:800 21px Outfit}.logo span{color:var(--cyan)}.more{position:relative}.dots{width:40px;height:40px;border-radius:12px;background:#142b43;border:1px solid var(--line)}.menu{display:none;position:absolute;right:0;top:48px;width:190px;background:#142a42;border:1px solid var(--line);border-radius:14px;padding:6px;box-shadow:0 15px 35px #0008}.menu.open{display:block}.menu a{display:block;width:100%;text-align:left;padding:12px;color:white;text-decoration:none;border-radius:8px;font-size:13px}.menu a:active{background:#25415e}main{max-width:760px;margin:64px auto 0;padding:14px 16px 0;height:calc(100vh - 142px);height:calc(100dvh - 142px);overflow:hidden}section{display:none;animation:up .2s ease;height:100%;overflow:hidden}section.active{display:flex;flex-direction:column}section>h1,section>.sub,section>.segment,section>.search,section>div:not(.list){flex-shrink:0}.list{overflow-y:auto;overscroll-behavior:contain;padding-bottom:12px;min-height:0;flex:1}#admin .stats{flex-shrink:0}#admin #userList{min-height:0;flex:1;overflow-y:auto}h1{font:700 26px Outfit;margin:4px 0 5px}h2{font:700 17px Outfit;margin:0 0 12px}.sub{color:var(--muted);font-size:13px;margin:0 0 20px}.nav{position:fixed;bottom:0;left:0;right:0;z-index:10;display:grid;grid-template-columns:repeat(4,1fr);background:#091727f5;border-top:1px solid var(--line);padding:8px 5px calc(8px + env(safe-area-inset-bottom))}.nav button{background:transparent;color:#879db5;font-size:11px;font-weight:700;padding:6px}.nav button i{display:block;font-size:19px;margin-bottom:5px}.nav button.active{color:#5ccaff}.scanbox{width:min(75vw,310px);height:min(75vw,310px);margin:22px auto 18px;border-radius:27px;background:linear-gradient(145deg,#153a5a,#09192a);border:1px solid #3475a1;display:grid;place-items:center;position:relative;overflow:hidden;box-shadow:0 0 0 8px #279fff0c,0 0 40px #279fff25;cursor:pointer}.scanbox:before{content:"";position:absolute;inset:14px;border:1px solid #55cfff66;border-radius:18px;animation:spin 8s linear infinite}.scanbox:after{content:"";position:absolute;left:8%;right:8%;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);box-shadow:0 0 13px var(--cyan);animation:beam 2.4s ease-in-out infinite}.scanbox svg{width:65%;z-index:1;filter:drop-shadow(0 0 12px #279fff55)}.scanbox b{position:absolute;bottom:17px;font-size:10px;letter-spacing:2px;color:#a8e7ff;z-index:2}.primary{background:linear-gradient(110deg,#168df2,#28bfdc);border-radius:12px;padding:14px 18px;font-weight:800}.secondary{background:#193650;border:1px solid #315372;border-radius:11px;padding:11px 14px;font-weight:700}.test{display:block;width:min(100%,310px);margin:auto}.hint{text-align:center;color:var(--muted);font-size:12px;line-height:1.55;margin:17px 5px}.segment{display:flex;gap:6px;background:#0a1b2d;padding:5px;border-radius:12px;margin:16px 0 12px}.segment button{flex:1;background:transparent;color:var(--muted);border-radius:9px;padding:11px;font-weight:800}.segment button.active{background:#1b3b59;color:#6ed7ff}.search{width:100%;padding:13px;background:#0a1b2d;border:1px solid var(--line);border-radius:11px;color:white;margin-bottom:12px;outline:none}.list{display:flex;flex-direction:column;gap:9px}.item,.activity{display:flex;align-items:center;gap:11px;padding:12px;background:var(--p);border:1px solid #223e59;border-radius:14px}.avatar{width:46px;height:46px;border-radius:14px;object-fit:cover;background:#1c4567;display:grid;place-items:center;flex-shrink:0;font:700 18px Outfit}.info{flex:1;min-width:0}.info b{display:block;font-size:13px}.info small{display:block;color:var(--muted);font-size:11px;line-height:1.5;margin-top:4px;overflow-wrap:anywhere}.tag{font-size:10px;font-weight:800;border-radius:20px;padding:6px 8px;background:#123e39;color:#81f2cc;white-space:nowrap}.tag.red{background:#49212e;color:#ff9dad}.tag.blue{background:#173b5a;color:#9cddff}.empty{text-align:center;padding:30px;color:#8298af;font-size:13px}.adminhead{display:flex;align-items:center;justify-content:space-between}.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:7px 0}.stat{padding:6px 8px}.stat small{font-size:8px}.stat b{font-size:16px;margin-top:1px}.stat{padding:8px 10px;border-radius:11px;background:var(--p);border:1px solid #223e59}.stat small{font-size:9px;color:var(--muted);font-weight:700}.stat b{display:block;font:700 19px Outfit;margin-top:3px}.actions{display:flex;gap:6px}.tapphoto{cursor:zoom-in}.date-group{margin:0 0 12px}.date-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;margin-bottom:8px;background:#17334e;border:1px solid #315372;border-radius:12px}.date-heading b{font:700 13px Outfit;color:#bdeaff}.date-download{position:relative}.date-download .mini{width:auto;padding:7px 9px;font-size:11px}.download-menu{display:none;position:absolute;right:0;top:38px;z-index:5;min-width:112px;padding:5px;background:#18334e;border:1px solid #3b5d7c;border-radius:10px;box-shadow:0 10px 25px #0008}.download-menu.show{display:block}.download-menu button{display:block;width:100%;padding:9px;text-align:left;background:transparent;border-radius:7px;font-size:12px}.access-card{display:block;padding:12px;background:var(--p);border:1px solid #29445e;border-radius:14px}.access-head{display:flex;gap:11px;align-items:center}.access-times{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.timecell{padding:10px;border-radius:10px;background:#0b1c2d;border:1px solid #29445e;min-width:0}.timecell b{display:block;font-size:11px;margin-bottom:5px}.timecell small{font-size:10px;color:var(--muted);line-height:1.5}.timecell.in b{color:var(--green)}.timecell.out b{color:#69caff}.image-view{position:fixed;inset:0;z-index:80;background:#02060df2;display:none;align-items:center;justify-content:center;padding:18px}.image-view.show{display:flex}.image-view img{max-width:100%;max-height:85vh;object-fit:contain;border-radius:14px}.image-view .close{position:absolute;top:calc(18px + env(safe-area-inset-top));right:18px;width:42px;height:42px;font-size:18px}.mini{width:32px;height:32px;border-radius:9px;background:#1c3e5d;color:#9bdfff}.mini.del{background:#4b2030;color:#ff9eac}.fab{position:fixed;right:19px;bottom:95px;width:56px;height:56px;border-radius:18px;background:linear-gradient(130deg,#168df2,#2ac2df);font-size:22px;box-shadow:0 10px 28px #168cff55;z-index:7}.modal{position:fixed;inset:0;z-index:20;background:#020813eF;display:none;align-items:center;justify-content:center;padding:16px}.modal.show{display:flex}.box{width:min(100%,460px);max-height:92vh;overflow:auto;background:#10243a;border:1px solid #315372;border-radius:20px;padding:19px}.boxhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}.close{width:34px;height:34px;border-radius:10px;background:#1b3855}.field{margin:12px 0}.field label{display:block;font-size:11px;color:#afc2d5;margin-bottom:6px;font-weight:700}.field input,.field select{width:100%;padding:12px;background:#091a2c;color:white;border:1px solid #2b4966;border-radius:10px;outline:none}.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}.steps{display:flex;gap:5px;margin-bottom:16px}.steps i{height:4px;flex:1;border-radius:5px;background:#29445e}.steps i.on{background:#39b9ff}.stepactions{display:flex;gap:8px;margin-top:16px}.stepactions button{flex:1}.cam{display:none;position:fixed;inset:0;background:#02070d;z-index:40;flex-direction:column}.cam.show{display:flex}.camhead{height:60px;display:flex;justify-content:space-between;align-items:center;padding:0 15px;background:#081322}.camarea{flex:1;min-height:0;position:relative;display:grid;place-items:center;overflow:hidden}.camarea video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}.frame{position:absolute;width:min(70vw,330px);height:min(92vw,420px);border:2px solid var(--cyan);border-radius:48% 48% 42% 42%;box-shadow:0 0 0 999px #0006,0 0 25px #5be0f288;pointer-events:none}.camstatus{position:absolute;top:15px;left:15px;background:#a92c45;padding:8px 11px;border-radius:20px;font-size:11px;font-weight:800}.cambottom{text-align:center;padding:17px 17px calc(22px + env(safe-area-inset-bottom));background:#081322}.cambottom p{font-size:12px;color:#afc2d5;margin:0 0 12px}.cambottom button{width:100%;max-width:430px}.settingbox{background:var(--p);border:1px solid #223e59;border-radius:14px;padding:13px;margin:10px 0}.settingbox h3{font:700 13px Outfit;color:#67d3ff;margin:0 0 7px}.setting{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid #223e59;font-size:12px}.setting:last-child{border:0}.setting input[type=checkbox]{width:18px;height:18px;accent-color:#279fff}.setting input[type=text],.setting input[type=password],.setting input[type=number]{width:112px;padding:8px;border-radius:8px;background:#081a2b;color:white;border:1px solid #31506d}.setting button{background:#1a3b5a;border-radius:8px;padding:8px 10px;font-size:10px;font-weight:800}.toast{position:fixed;z-index:60;bottom:94px;left:50%;transform:translateX(-50%);background:#eaf7ff;color:#092039;padding:12px 16px;border-radius:11px;font-size:12px;font-weight:800;display:none;max-width:90%;text-align:center}.toast.show{display:block;animation:up .2s}@keyframes spin{to{transform:rotate(360deg)}}@keyframes beam{0%,100%{top:14%;opacity:.4}50%{top:84%;opacity:1}}@keyframes up{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}@media(min-width:620px){.stats{grid-template-columns:repeat(3,1fr)}}
+.activity-tabs{display:flex;gap:7px;background:#091b2d;border:1px solid #29445e;padding:5px;border-radius:14px;margin:8px 0 12px;flex-shrink:0}
+.activity-tabs button{flex:1;padding:11px 8px;border-radius:10px;background:transparent;color:#91a6bd;font-size:12px;font-weight:800;transition:all .22s ease}
+.activity-tabs button.active{color:#eaf8ff;background:linear-gradient(110deg,#14558a,#176a83);box-shadow:0 5px 18px #159fff30}
+.activity-pane{display:flex;flex-direction:column;min-height:0;flex:1;overflow:hidden}
+.verify-card{display:flex;gap:12px;align-items:center;padding:12px;background:linear-gradient(135deg,#102a42,#10243a);border:1px solid #2a526d;border-radius:15px;box-shadow:0 7px 20px #0002}
+.verify-card .avatar{width:54px;height:54px;border-radius:14px}
+.verify-badge{font-size:9px;font-weight:900;letter-spacing:.7px;color:#79f0c7;background:#123e39;border:1px solid #246d5e;border-radius:20px;padding:6px 8px;white-space:nowrap}
+.verify-date{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;margin:2px 0 8px;background:#17334e;border:1px solid #315372;border-radius:12px}
+.verify-date b{font:700 13px Outfit;color:#bdeaff}
+.verify-download{position:relative;isolation:isolate;border-radius:11px;background:linear-gradient(120deg,#087ed0,#19b7cb);padding:8px 11px;font-size:11px;font-weight:900;box-shadow:0 0 0 0 #29bfff80;animation:verifyPulse 2.1s ease-in-out infinite}
+.verify-download:before{content:"";position:absolute;inset:-4px;border:1px solid #48cfff80;border-radius:14px;animation:verifyRing 2.1s ease-out infinite;z-index:-1}
+@keyframes verifyPulse{0%,100%{box-shadow:0 0 0 0 #29bfff25}50%{box-shadow:0 0 18px 3px #29bfff45}}
+@keyframes verifyRing{0%{transform:scale(.94);opacity:.8}80%,100%{transform:scale(1.16);opacity:0}}
+
+</style>
+</head>
+<body>
+<header><div class="logo">Access<span>One</span></div><div style="display:flex;align-items:center;gap:8px">
+<button class="dots" aria-label="Share app" onclick="shareApp()"><i class="fa-solid fa-share-nodes"></i></button><div class="more"><button class="dots" id="dots" aria-label="More options"><i class="fa-solid fa-ellipsis-vertical"></i></button><div class="menu" id="menu"><a href="about.html" target="_blank" rel="noopener">About</a><a href="privacy.html" target="_blank" rel="noopener">Privacy</a><a href="terms.html" target="_blank" rel="noopener">Terms and Conditions</a><a href="help.html" target="_blank" rel="noopener">Help</a><a href="#" target="_blank" rel="noopener">Version 1.0.0</a></div></div></div></header>
+<main>
+<section id="scan" class="active"><h1 style="text-align: center;">Face Scan</h1><p class="sub" style="text-align: center;">Quick employee access verification.</p><div class="scanbox" onclick="openCamera('access')"><svg viewBox="0 0 100 100" fill="none" stroke="#9ceaff" stroke-width="5"><path d="M7 7h29v29H7zM64 7h29v29H64zM7 64h29v29H7z"/><path d="M16 16h11v11H16zM73 16h11v11H73zM16 73h11v11H16z" fill="#9ceaff" stroke="none"/><path d="M47 7h8v8h-8zM47 23h8v8h-8zM43 43h9v9h-9zM59 43h8v8h-8zM75 45h8v8h-8zM43 59h8v8h-8zM59 59h8v8h-8zM75 59h8v8h-8zM43 75h8v8h-8zM59 75h8v8h-8zM75 75h8v8h-8z"/></svg><b>Login And Logout</b></div><button class="primary test" onclick="openCamera('test')"><i class="fa-solid fa-eye"></i> &nbsp; Verification</button><p class="hint">Use For Access Control <br> Any Organisation</p></section>
+<section id="access"><h1>Access Records</h1><p class="sub">Safe And Secure Your Data </p><div class="segment"><button id="succBtn" class="active" onclick="filterAccess('success')">Successful <span id="succCount">0</span></button><button id="failBtn" onclick="filterAccess('failed')">Failed <span id="failCount">0</span></button></div><input class="search" id="accessSearch" placeholder="Search name, ID or company..." oninput="renderAccess()"><div class="list" id="accessList"></div></section>
+<section id="activity"><div style="display:flex;justify-content:space-between;align-items:center"><h1>Activity</h1><button class="secondary" id="clearActivityBtn" onclick="clearActivity()" style="font-size:11px;padding:9px 11px"><i class="fa-solid fa-trash"></i> Clear</button></div><div class="activity-tabs"><button class="active" id="activityTabBtn" onclick="showActivityPane('activity')"><i class="fa-solid fa-clock-rotate-left"></i> Activity</button><button id="verificationTabBtn" onclick="showActivityPane('verification')"><i class="fa-solid fa-circle-check"></i> Verification</button></div><div id="activityPane" class="activity-pane"><p class="sub">Successful and failed access activity.</p><div class="list" id="activityList"></div></div><div id="verificationPane" class="activity-pane" style="display:none"><p class="sub">Verified face scans with employee details, grouped by date.</p><div class="list" id="verificationList"></div></div></section>
+<section id="admin"><div class="adminhead"><div><h1>Admin</h1><p class="sub" style="margin:0">Employee management</p></div><button class="dots" onclick="openSettings()"><i class="fa-solid fa-gear"></i></button></div><div class="stats"><div class="stat"><small>TODAY NEW USERS</small><b id="sNew">0</b></div><div class="stat"><small>TODAY AUTHORIZATIONS</small><b id="sAuth">0</b></div><div class="stat"><small>TOTAL FAILURE COUNT</small><b id="sFail">0</b></div><div class="stat"><small>MONTHLY SUCCESSFUL</small><b id="sMonth">0</b></div><div class="stat"><small>TOTAL ALL USERS</small><b id="sUsers">0</b></div></div><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin:8px 0 7px"><h2 style="margin:0">All Users</h2><div class="actions"><button class="secondary" onclick="exportUsersExcel()" style="font-size:10px;padding:9px"><i class="fa-solid fa-file-excel"></i> Excel</button><button class="secondary" onclick="exportUsersPDF()" style="font-size:10px;padding:9px"><i class="fa-solid fa-file-pdf"></i> PDF</button></div></div><input class="search" id="userSearch" placeholder="Search users..." oninput="renderUsers()"><div class="list" id="userList"></div><button class="fab" onclick="startWizard()"><i class="fa-solid fa-plus"></i></button></section>
+</main>
+<nav class="nav"><button class="active" data-tab="scan" onclick="go('scan')"><i class="fa-solid fa-qrcode"></i>Scan</button><button data-tab="access" onclick="go('access')"><i class="fa-solid fa-shield-halved"></i>Access</button><button data-tab="activity" onclick="go('activity')"><i class="fa-solid fa-clock-rotate-left"></i>Activity</button><button data-tab="admin" onclick="askAdmin()"><i class="fa-solid fa-user-shield"></i>Admin</button></nav>
+<div class="modal" id="pinModal"><div class="box"><div class="boxhead"><h2>Admin Password</h2><button class="close" onclick="hide('pinModal')"><i class="fa-solid fa-xmark"></i></button></div><p class="sub">Enter your 4-digit password. Initial password: 1234</p><div class="field"><input id="pinInput" type="password" inputmode="numeric" maxlength="4" placeholder="••••"></div><button class="primary" style="width:100%" onclick="verifyAdmin()">Unlock Admin</button></div></div>
+<div class="modal" id="wizard"><div class="box"><div class="boxhead"><h2 id="wizTitle">New User Registration</h2><button class="close" onclick="hide('wizard')"><i class="fa-solid fa-xmark"></i></button></div><div class="steps" id="steps"></div><div id="wizBody"></div><div class="stepactions"><button class="secondary" onclick="prevStep()" id="prev">Back</button><button class="primary" onclick="nextStep()" id="next">Next</button></div></div></div>
+<div class="modal" id="settings"><div class="box"><div class="boxhead"><h2>Settings</h2><button class="close" onclick="hide('settings')"><i class="fa-solid fa-xmark"></i></button></div><div id="settingsBody"></div></div></div>
+<div class="cam" id="cam"><div class="camhead"><button class="secondary" onclick="closeCamera()"><i class="fa-solid fa-arrow-left"></i></button><b id="camTitle">FACE SCAN</b><span class="tag blue" id="camMode">ACCESS</span></div><div class="camarea"><video id="video" autoplay muted playsinline></video><div class="frame"></div><div class="camstatus" id="camStatus">● STARTING CAMERA</div></div><div class="cambottom"><p id="camMessage">Center your face. Detection begins automatically.</p><div id="camResult" style="display:none;text-align:left;max-width:430px;margin:0 auto 12px;background:#10243a;border:1px solid #315372;border-radius:15px;padding:12px"><div style="display:flex;gap:12px;align-items:center"><img id="resultPhoto" class="avatar" style="width:68px;height:68px;border-radius:12px"><div><b id="resultName" style="display:block"></b><small id="resultId" style="color:#91a6bd"></small></div></div><div id="resultDetails" style="font-size:12px;line-height:1.8;margin-top:9px"></div><b id="resultStatus" style="display:block;color:#22d6a2;margin-top:8px;font-size:13px"></b></div><button class="primary" id="camAction" disabled onclick="cameraAction()">Detecting…</button></div></div><div class="image-view" id="imageView" onclick="closeImage()"><button class="close" onclick="event.stopPropagation();closeImage()"><i class="fa-solid fa-xmark"></i></button><img id="fullImage" alt="Full size user photo" onclick="event.stopPropagation()"></div><div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const DB='FaceScanLocal',STORE='FaceScan',DEFAULT='1234';let db,users=[],state={access:[],failed:[],activities:[],verifications:[],settings:{},password:DEFAULT},tab='scan',admin=false,filter='success',editId=null,step=0,form={},stream=null,mode='access',modelReady=false,descriptor=null,photo=null,found=false,detTimer=null,cameraActionBusy=false,verificationSavedThisSession=false;
+const $=x=>document.getElementById(x),date=()=>{let d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')},time=()=>{let d=new Date();return {date:date(),time:d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'}),iso:d.toISOString()}},uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+function msg(s){let t=$('toast');t.textContent=s;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2600)}function hide(id){$(id).classList.remove('show')}function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function openDB(){return new Promise((ok,no)=>{let r=indexedDB.open(DB,1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains(STORE))r.result.createObjectStore(STORE,{keyPath:'id'});if(!r.result.objectStoreNames.contains('State'))r.result.createObjectStore('State',{keyPath:'key'})};r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)})}
+function allUsers(){return new Promise((ok,no)=>{let r=db.transaction(STORE).objectStore(STORE).getAll();r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)})}function putUser(u){return new Promise((ok,no)=>{let r=db.transaction(STORE,'readwrite').objectStore(STORE).put(u);r.onsuccess=ok;r.onerror=()=>no(r.error)})}function delUser(id){return new Promise(ok=>{let r=db.transaction(STORE,'readwrite').objectStore(STORE).delete(id);r.onsuccess=ok})}function clearUsers(){return new Promise(ok=>{let r=db.transaction(STORE,'readwrite').objectStore(STORE).clear();r.onsuccess=ok})}
+async function save(){let t=db.transaction('State','readwrite');t.objectStore('State').put({key:'app',...state});return new Promise(ok=>t.oncomplete=ok)}
+async function init(){try{db=await openDB();users=await allUsers();let s=await new Promise(ok=>{let r=db.transaction('State').objectStore('State').get('app');r.onsuccess=()=>ok(r.result)});if(s)state={...state,...s};state.verifications=dedupeVerificationRecords(state.verifications||[]);renderAll()}catch(e){msg('Local storage error: '+e.message)}}function log(m,c='Access'){if(c!=='Access')return;state.activities.unshift({id:uid(),message:m,category:c,...time()});if(state.activities.length>2000)state.activities.length=2000;save();renderActivity()}
+function go(n){if(n==='admin'&&!admin){askAdmin();return}tab=n;document.querySelectorAll('main section').forEach(s=>s.classList.toggle('active',s.id===n));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===n));$('menu').classList.remove('open');if(n==='access')renderAccess();if(n==='activity')renderActivity();if(n==='admin')renderAdmin()}
+$('dots').onclick=()=>$('menu').classList.toggle('open');document.addEventListener('click',e=>{if(!e.target.closest('.more'))$('menu').classList.remove('open')});
+async function shareApp(){
+    const appLink = 'https://gurunabhadass.github.io/Access_apk/';
+
+    try{
+        if(navigator.share){
+            await navigator.share({
+                title: 'AccessOne',
+                text: 'Download AccessOne - Smart Face Recognition & Access Control',
+                url: appLink
+            });
+        }else{
+            await navigator.clipboard.writeText(appLink);
+            msg('link copied');
+        }
+    }catch(e){}
+} 
+function openLink(k){const links={about:'',privacy:'',terms:'',help:'',version:''};const u=links[k];if(u)window.open(u,'_blank','noopener');else msg(k.toUpperCase()+' link will be added here');$('menu').classList.remove('open');return false}
+function askAdmin(){$('pinInput').value='';$('pinModal').classList.add('show')}function verifyAdmin(){if($('pinInput').value===state.password){admin=true;hide('pinModal');go('admin')}else msg('Incorrect password')}
+function renderAll(){renderAccess();renderActivity();renderAdmin()}function filterAccess(f){filter=f;$('succBtn').classList.toggle('active',f==='success');$('failBtn').classList.toggle('active',f==='failed');renderAccess()}
+function openImage(src){if(!src)return;$('fullImage').src=src;$('imageView').classList.add('show')}function closeImage(){$('imageView').classList.remove('show');$('fullImage').src=''}
+function renderAccess(){
+ const success=state.access,failed=state.failed;
+ $('succCount').textContent=new Set(success.map(x=>x.id+'|'+x.date)).size;
+ $('failCount').textContent=failed.length;
+ const q=$('accessSearch').value.trim().toLowerCase();
+ const records=filter==='success'?success:failed;
+ const dates=[...new Set(records.map(x=>x.date).filter(Boolean))].sort((a,b)=>b.localeCompare(a));
+ if(!dates.length){$('accessList').innerHTML='<div class="empty">No '+(filter==='success'?'successful':'failed')+' scan records yet.</div>';return}
+ $('accessList').innerHTML=dates.map(d=>{
+  let day=records.filter(x=>x.date===d).filter(x=>([x.name,x.id,x.company,x.designation].join(' ')).toLowerCase().includes(q));
+  if(!day.length)return '';
+  let cards='';
+  if(filter==='success'){
+   const ids=[...new Set(day.map(x=>x.id))];
+   cards=ids.map(id=>{let ev=day.filter(x=>x.id===id).sort((a,b)=>(Date.parse(a.iso)||0)-(Date.parse(b.iso)||0));let first=ev.find(x=>x.type==='IN'),last=[...ev].reverse().find(x=>x.type==='OUT'),u=last||first||ev[0];return `<div class="access-card"><div class="access-head">${u.photo?`<img class="avatar tapphoto" style="width:52px;height:52px" src="${u.photo}" onclick="openImage(this.src)">`:`<div class="avatar">${esc((u.name||'?')[0])}</div>`}<div class="info"><b>${esc(u.name)}</b><small>ID No: ${esc(u.id)}<br>${esc(u.designation||'—')} · ${esc(u.company||'—')}</small></div><span class="tag">SUCCESSFUL</span></div><div class="access-times"><div class="timecell in"><b><i class="fa-solid fa-right-to-bracket"></i> LOG IN</b><small>${first?esc(first.date)+'<br>'+esc(first.time):'—'}</small></div><div class="timecell out"><b><i class="fa-solid fa-right-from-bracket"></i> LOG OUT</b><small>${last?esc(last.date)+'<br>'+esc(last.time):'Waiting for 8-hour logout'}</small></div></div></div>`}).join('');
+  }else{
+   cards=day.map(x=>`<div class="item" style="align-items:flex-start">${x.photo?`<img class="avatar tapphoto" style="width:52px;height:52px" src="${x.photo}" onclick="openImage(this.src)">`:`<div class="avatar">?</div>`}<div class="info"><b>${esc(x.name||'Unknown Person')}</b><small>ID No: ${esc(x.id||'—')}<br>${esc(x.time||'')} · ${esc(x.reason||'Face not matched')}</small><span class="tag red" style="display:inline-block;margin-top:6px">FAILED</span></div></div>`).join('');
+  }
+  return `<div class="date-group"><div class="date-heading"><b><i class="fa-regular fa-calendar"></i> ${esc(formatDate(d))}</b><div class="date-download"><button class="mini" onclick="toggleDownloadMenu(this)"><i class="fa-solid fa-download"></i> Download</button><div class="download-menu"><button onclick="downloadDate('${d}','excel',this)"><i class="fa-solid fa-file-excel"></i> Excel</button><button onclick="downloadDate('${d}','pdf',this)"><i class="fa-solid fa-file-pdf"></i> PDF</button></div></div></div>${cards}</div>`;
+ }).join('')||'<div class="empty">No matching records.</div>';
+}
+function formatDate(d){let p=d.split('-');return new Date(+p[0],+p[1]-1,+p[2]).toLocaleDateString(undefined,{weekday:'long',day:'2-digit',month:'long',year:'numeric'})}
+function toggleDownloadMenu(btn){document.querySelectorAll('.download-menu.show').forEach(x=>x.classList.remove('show'));btn.nextElementSibling.classList.toggle('show')}
+function downloadDate(d,format,btn){document.querySelectorAll('.download-menu.show').forEach(x=>x.classList.remove('show'));let success=filter==='success';if(success){let rows=currentSuccessfulRows(d);if(!rows.length){msg('No successful records for this date');return}if(format==='excel')exportTableExcel(['Name','ID No','Designation','Company','Login Date','Login Time','Logout Date','Logout Time'],rows,'FaceScan-Successful-'+d,'Successful');else exportTablePDF('FaceScan Successful Access · '+d,['Name','ID No','Designation','Company','Login Date','Login Time','Logout Date','Logout Time'],rows,'FaceScan-Successful-'+d)}else{let rows=currentFailureRows(d);if(!rows.length){msg('No failed records for this date');return}if(format==='excel')exportTableExcel(['Name','ID No','Designation','Company','Failure Date','Failure Time','Reason'],rows,'FaceScan-Failure-'+d,'Failure');else exportTablePDF('FaceScan Failure Records · '+d,['Name','ID No','Designation','Company','Failure Date','Failure Time','Reason'],rows,'FaceScan-Failure-'+d)}}
+function clearActivity(){if(!confirm('Clear all activity history?'))return;state.activities=[];save();renderActivity();msg('Activity cleared')}
+function ago(x){let ms=Date.now()-(Date.parse(x.iso)||Date.now()),m=Math.max(0,Math.floor(ms/60000));if(m<1)return 'Just now';if(m<60)return m+' min ago';let h=Math.floor(m/60);if(h<24)return h+' hr ago';let d=Math.floor(h/24);return d+' day'+(d>1?'s':'')+' ago'}
+function showActivityPane(which){let verification=which==='verification';$('activityPane').style.display=verification?'none':'flex';$('verificationPane').style.display=verification?'flex':'none';$('activityTabBtn').classList.toggle('active',!verification);$('verificationTabBtn').classList.toggle('active',verification);$('clearActivityBtn').style.display=verification?'none':'inline-flex';if(verification)renderVerification()}
+function renderActivity(){let a=state.activities.filter(x=>x.category==='Access');$('activityList').innerHTML=a.length?a.map(x=>`<div class="activity"><div class="avatar"><i class="fa-solid fa-shield-halved"></i></div><div class="info"><b>${esc(x.message)}</b><small>${esc(x.date)} · ${esc(x.time)} · ${ago(x)}</small></div></div>`).join(''):'<div class="empty">No scan activity.</div>';renderVerification()}
+function verificationRecordKey(x){return [String(x.id||'').trim().toLowerCase(),x.date||'',x.time||''].join('|')}function dedupeVerificationRecords(records){let seen=new Set();return (Array.isArray(records)?records:[]).filter(x=>{if(!x||!x.id||!x.date||!x.time)return false;let k=verificationRecordKey(x);if(seen.has(k))return false;seen.add(k);return true})}
+function renderVerification(){let records=dedupeVerificationRecords(state.verifications||[]);if(records.length!==(state.verifications||[]).length){state.verifications=records;save()} let dates=[...new Set(records.map(x=>x.date).filter(Boolean))].sort((a,b)=>b.localeCompare(a));if(!dates.length){$('verificationList').innerHTML='<div class="empty">No verified scans yet.</div>';return}$('verificationList').innerHTML=dates.map(d=>{let day=records.filter(x=>x.date===d).sort((a,b)=>(Date.parse(b.iso)||0)-(Date.parse(a.iso)||0));let cards=day.map(x=>`<div class="verify-card">${x.photo?`<img class="avatar tapphoto" src="${x.photo}" onclick="openImage(this.src)">`:`<div class="avatar">${esc((x.name||'?')[0])}</div>`}<div class="info"><b>${esc(x.name||'Unknown')}</b><small>ID No: ${esc(x.id||'—')}<br>${esc(x.designation||'—')} · ${esc(x.company||'—')}<br><i class="fa-regular fa-calendar-check"></i> Verified: ${esc(x.date)} · ${esc(x.time)}</small></div><span class="verify-badge"><i class="fa-solid fa-check"></i> VERIFIED</span></div>`).join('');return `<div class="date-group"><div class="verify-date"><b><i class="fa-regular fa-calendar"></i> ${esc(formatDate(d))}</b><div class="date-download"><button class="verify-download" onclick="toggleDownloadMenu(this)"><i class="fa-solid fa-download"></i> Download</button><div class="download-menu"><button onclick="downloadVerificationDate('${d}','excel')"><i class="fa-solid fa-file-excel"></i> Excel</button><button onclick="downloadVerificationDate('${d}','pdf')"><i class="fa-solid fa-file-pdf"></i> PDF</button></div></div></div>${cards}</div>`}).join('')}
+function downloadVerificationDate(d,format){document.querySelectorAll('.download-menu.show').forEach(x=>x.classList.remove('show'));let rows=dedupeVerificationRecords(state.verifications||[]).filter(x=>x.date===d).sort((a,b)=>(Date.parse(a.iso)||0)-(Date.parse(b.iso)||0)).map(x=>[x.name||'',x.id||'',x.designation||'',x.company||'',x.date||'',x.time||'']);if(!rows.length){msg('No verification records for this date');return}let headers=['Name','ID No','Designation','Company','Verified Date','Verified Time'];if(format==='excel')exportTableExcel(headers,rows,'AccessOne-Verification-'+d,'Verification');else exportTablePDF('AccessOne Verification Records · '+d,headers,rows,'AccessOne-Verification-'+d)}
+function renderAdmin(){let d=date();$('sNew').textContent=users.filter(u=>u.createdDate===d).length;$('sAuth').textContent=state.access.filter(x=>x.date===d).length;$('sFail').textContent=state.failed.length;let ym=d.slice(0,7);$('sMonth').textContent=state.access.filter(x=>x.date&&x.date.slice(0,7)===ym).length;$('sUsers').textContent=users.length;renderUsers()}
+function renderUsers(){let q=$('userSearch').value.toLowerCase(),a=users.filter(u=>(u.name+u.id+u.company).toLowerCase().includes(q));$('userList').innerHTML=a.length?a.map(u=>`<div class="item">${u.photo?`<img class="avatar tapphoto" src="${u.photo}" onclick="openImage(this.src)">`:`<div class="avatar">${esc(u.name[0])}</div>`}<div class="info"><b>${esc(u.name)}</b><small>${esc(u.id)} · ${esc(u.company||'')}<br>${esc(u.designation||'')} · ${esc(u.city||'')}</small></div><div class="actions"><button class="mini" onclick="editUser('${u.id}')"><i class="fa-solid fa-pen"></i></button><button class="mini del" onclick="deleteUser('${u.id}')"><i class="fa-solid fa-trash"></i></button></div></div>`).join(''):'<div class="empty">No users registered.</div>'}
+async function deleteUser(id){let u=users.find(x=>x.id===id);if(!u||!confirm('Delete '+u.name+' and their face data?'))return;await delUser(id);users=await allUsers();log('User deleted: '+u.name+' ('+u.id+')','Employee');renderAdmin();msg('User deleted')}
+const fields=[[['name','Name','text'],['id','ID','text'],['designation','Designation','text'],['company','Company','text']],[['gender','Gender','select'],['dob','Date of Birth','date']],[['mobile','Mobile Number','tel'],['email','Email','email']],[['city','City','text'],['state','State','text']]];
+function startWizard(){editId=null;step=0;form={};$('wizTitle').textContent='New User Registration';drawWizard();$('wizard').classList.add('show')}function editUser(id){let u=users.find(x=>x.id===id);if(!u)return;editId=id;step=0;form={...u};$('wizTitle').textContent='Edit User';drawWizard();$('wizard').classList.add('show')}
+function drawWizard(){
+ $('steps').innerHTML=Array.from({length:5},(_,i)=>'<i class="'+(i<=step?'on':'')+'"></i>').join('');
+ $('prev').style.visibility=step===0?'hidden':'visible';
+ $('next').textContent=step===4?'Open Face Camera':'Next';
+ if(step<4){
+  $('wizBody').innerHTML=fields[step].map(([k,l,t])=>{
+   let input=t==='select'?'<select id="f_'+k+'"><option value="">Select gender</option><option>Male</option><option>Female</option><option>Other</option></select>':'<input id="f_'+k+'" type="'+t+'" placeholder="'+l+'" value="'+esc(form[k]||'')+'">';
+   return '<div class="field"><label>'+l+'</label>'+input+'</div>';
+  }).join('');
+  fields[step].forEach(([k])=>{if($('f_'+k).tagName==='SELECT')$('f_'+k).value=form[k]||''});
+ }else{
+  $('wizBody').innerHTML='<div style="text-align:center;padding:16px"><div style="font-size:36px;color:var(--cyan)"><i class="fa-solid fa-face-viewfinder"></i></div><h2>Face Scan</h2><p class="sub">Full-screen camera automatically registers one face after 5 seconds and saves all details.</p><span class="tag '+(form.descriptor?'':'blue')+'">'+(form.descriptor?'FACE CAPTURED':'FACE NOT CAPTURED')+'</span><button class="primary" style="width:100%;margin-top:17px" onclick="openCamera(\'register\')">Open Face Scan</button></div>';
+ }
+}
+function collect(){if(step===4)return true;for(let [k,l] of fields[step]){let v=$('f_'+k).value.trim();if(!v){msg('Enter '+l);return false}form[k]=v}if(step===0&&users.some(u=>u.id.toLowerCase()===form.id.toLowerCase()&&u.id!==editId)){msg('ID already registered');return false}return true}
+function nextStep(){if(step<4){if(!collect())return;step++;drawWizard()}else{if(!form.name||!form.id){msg('Complete user details first');return}openCamera('register')}}function prevStep(){if(step>0){collect();step--;drawWizard()}}
+async function saveWizard(){if(!form.descriptor){msg('Complete Face Scan first');return}let old=users.find(u=>u.id===editId),t=time();let u={...form,createdDate:old?.createdDate||t.date,createdAt:old?.createdAt||t.iso};await putUser(u);users=await allUsers();hide('wizard');log((old?'User edited: ':'New user registered: ')+u.name+' ('+u.id+')','Employee');renderAdmin();msg(old?'User updated':'User registered')}
+async function loadModels(){if(modelReady)return;if(!window.faceapi)throw Error('Face recognition engine unavailable. Internet is needed for first model download.');$('camStatus').textContent='LOADING FACE ENGINE';let base='https://cdn.jsdelivr.net/gh/justadudewhohacks/face-api.js@master/weights';await Promise.all([faceapi.nets.tinyFaceDetector.loadFromUri(base),faceapi.nets.faceLandmark68Net.loadFromUri(base),faceapi.nets.faceRecognitionNet.loadFromUri(base)]);modelReady=true}
+async function openCamera(m){mode=m;found=false;cameraActionBusy=false;verificationSavedThisSession=false;descriptor=null;photo=null;$('camResult').style.display='none';$('camAction').style.display='none';$('cam').classList.add('show');$('camTitle').textContent=m==='register'?'REGISTER FACE':m==='test'?'TEST SCAN':'ACCESS SCAN';$('camMode').textContent=m.toUpperCase();$('camAction').disabled=true;$('camAction').textContent=m==='register'?'Saving…':'Detecting…';try{await loadModels();stream=await navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:'user',width:{ideal:1280},height:{ideal:720}}});$('video').srcObject=stream;await $('video').play();$('camStatus').textContent='● LIVE CAMERA';$('camMessage').textContent='Center your face and hold still.';detectLoop()}catch(e){$('camStatus').textContent='CAMERA ERROR';$('camMessage').textContent=e.message;msg(e.message)}}
+function detectLoop(){clearInterval(detTimer);let firstFaceAt=0;detTimer=setInterval(async()=>{if(found||cameraActionBusy||!$('video').videoWidth)return;try{let r=await faceapi.detectAllFaces($('video'),new faceapi.TinyFaceDetectorOptions({inputSize:416,scoreThreshold:.48})).withFaceLandmarks().withFaceDescriptors();if(found||cameraActionBusy)return;if(r.length===1){if(!firstFaceAt)firstFaceAt=performance.now();let required=mode==='register'?5000:900,elapsed=performance.now()-firstFaceAt;$('camStatus').textContent='● FACE DETECTED';$('camMessage').textContent='Face detected… '+Math.min(required/1000,(elapsed/1000)).toFixed(1)+' / '+(required/1000)+' seconds';if(elapsed>=required){found=true;clearInterval(detTimer);detTimer=null;descriptor=Array.from(r[0].descriptor);photo=makePhoto();$('camStatus').textContent='● FACE MATCHING';$('camMessage').textContent='Checking registered employee…';await cameraAction()}}else{firstFaceAt=0;$('camStatus').textContent=r.length>1?'MULTIPLE FACES':'● SEARCHING';$('camMessage').textContent=r.length>1?'Only one person in frame.':'Center your face in the frame.'}}catch(e){}},250)}
+function makePhoto(){let v=$('video'),c=document.createElement('canvas');c.width=c.height=300;let s=Math.min(v.videoWidth,v.videoHeight);c.getContext('2d').translate(300,0);let x=c.getContext('2d');x.scale(-1,1);x.drawImage(v,(v.videoWidth-s)/2,(v.videoHeight-s)/2,s,s,0,0,300,300);return c.toDataURL('image/jpeg',.75)}
+function matchFace(d){let best=null,dist=9;for(let u of users){if(!u.descriptor)continue;let n=faceapi.euclideanDistance(new Float32Array(d),new Float32Array(u.descriptor));if(n<dist){dist=n;best=u}}return best&&dist<Number(state.settings.threshold||.48)?best:null}
+function showCameraResult(u,type,t,success=true){$('camResult').style.display='block';$('resultPhoto').src=photo||u?.photo||'';$('resultName').textContent=u?.name||'Unknown Person';$('resultId').textContent='ID No: '+(u?.id||'—');$('resultDetails').innerHTML='<div>Designation: '+esc(u?.designation||'—')+'</div><div>Company: '+esc(u?.company||'—')+'</div><div>'+esc(type||'')+' Date: '+esc(t?.date||date())+'</div><div>'+esc(type||'')+' Time: '+esc(t?.time||'')+'</div>';$('resultStatus').textContent=success?'✓ SUCCESSFULLY':'✕ FAILED';$('resultStatus').style.color=success?'#22d6a2':'#ff627b';$('camMessage').textContent='Face scan completed';$('camAction').style.display='none'}
+async function cameraAction(){if(!found||cameraActionBusy)return;cameraActionBusy=true;if(mode==='register'){form.descriptor=descriptor;form.photo=photo;let old=users.find(u=>u.id===editId),t=time();let u={...form,createdDate:old?.createdDate||t.date,createdAt:old?.createdAt||t.iso};try{await putUser(u);users=await allUsers();log((old?'User edited: ':'New user registered: ')+u.name+' ('+u.id+')','Employee');hide('wizard');renderAll();showCameraResult(u,'REGISTERED',t,true);$('camStatus').textContent='✓ REGISTRATION SUCCESS';setTimeout(closeCamera,3500)}catch(e){msg('Could not save user: '+e.message)}return}let u=matchFace(descriptor),t=time();if(mode==='test'){if(u){if(!verificationSavedThisSession){verificationSavedThisSession=true;state.verifications=dedupeVerificationRecords(state.verifications||[]);const record={id:u.id,name:u.name,designation:u.designation,company:u.company,photo:photo||u.photo||'',...t};const recordKey=verificationRecordKey(record);if(!state.verifications.some(x=>verificationRecordKey(x)===recordKey)){state.verifications.unshift(record);if(state.verifications.length>5000)state.verifications.length=5000;await save();}renderVerification();}showCameraResult({...u,photo:photo||u.photo},'VERIFIED',t,true);$('resultStatus').textContent='✓ VERIFIED';$('camStatus').textContent='✓ FACE MATCHED'}else{showCameraResult(null,'TEST',t,false);$('resultName').textContent='Face Not Recognized';$('resultDetails').textContent='No matching employee record found.';$('camStatus').textContent='✕ NO MATCH'}setTimeout(closeCamera,3500);return}if(u){/* Each employee has an independent IN/OUT cycle keyed by their own registered ID. */let userKey=String(u.id||'').trim().toLowerCase();let history=state.access.filter(a=>String(a.userKey??a.id??'').trim().toLowerCase()===userKey).sort((a,b)=>{let at=Date.parse(a.iso)||0,bt=Date.parse(b.iso)||0;return bt-at});let todayCount=history.filter(a=>a.date===t.date).length;if(todayCount>=2){showCameraResult(u,'ALREADY SCANNED',t,false);$('resultStatus').textContent='ALREADY SCANNED TODAY';$('resultDetails').innerHTML='You have already completed today’s Login and Logout scans.';$('camStatus').textContent='DAILY SCAN LIMIT REACHED';setTimeout(closeCamera,3500);return}let last=history[0],type='IN';if(last?.type==='IN'){let lastInMs=Date.parse(last.iso);if(!Number.isFinite(lastInMs)){let parsed=new Date((last.date||'')+' '+(last.time||''));lastInMs=parsed.getTime()}let elapsed=Number.isFinite(lastInMs)?Date.now()-lastInMs:0;if(elapsed<8*60*60*1000){let left=Math.ceil((8*60*60*1000-Math.max(0,elapsed))/60000);showCameraResult(u,'LOGOUT NOT READY',t,false);$('resultStatus').textContent='LOGOUT AVAILABLE AFTER 8 HOURS';$('resultDetails').innerHTML='Please wait approximately '+left+' more minute(s).';$('camStatus').textContent='8 HOUR WAIT REQUIRED';setTimeout(closeCamera,3500);return}type='OUT'}let record={id:u.id,userKey,name:u.name,designation:u.designation,company:u.company,photo:photo||u.photo||'',type,...t};state.access.unshift(record);await save();log(u.name+' ('+u.id+') successfully scanned · '+(type==='IN'?'LOGIN':'LOGOUT'),'Access');showCameraResult({...u,photo:photo||u.photo},type==='IN'?'LOG IN':'LOG OUT',t,true);$('resultStatus').textContent='✓ SUCCESSFULLY';$('camStatus').textContent='✓ ACCESS GRANTED';renderAll();setTimeout(closeCamera,4000)}else{state.failed.unshift({id:'Unknown',name:'Unknown Person',type:'FAILED',photo,...t});await save();log('Face scan failed · Unknown person','Access');showCameraResult(null,'SCAN',t,false);$('resultName').textContent='Unknown Person';$('resultDetails').textContent='No registered employee matched this face.';$('camStatus').textContent='✕ ACCESS DENIED';renderAll();setTimeout(closeCamera,3500)}}
+function closeCamera(){clearInterval(detTimer);detTimer=null;if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}$('video').srcObject=null;$('cam').classList.remove('show')}
+function openSettings(){drawSettings();$('settings').classList.add('show')}
+function drawSettings(){let s=state.settings;$('settingsBody').innerHTML=`
+<div class="settingbox"><h3>Admin Panel</h3>
+<div class="setting"><span>Show profile photo</span><input id="showPhoto" type="checkbox" ${s.showPhoto!==false?'checked':''}></div>
+<div class="setting"><span>Newest record first</span><b>ON</b></div>
+</div>
+<div class="settingbox"><h3>SYSTEM RELATED</h3>
+<div class="setting"><span>Face match threshold</span><input id="threshold" type="number" min=".30" max=".65" step=".01" value="${s.threshold||.48}"></div>
+<div class="setting"><span>Face detection duration</span><b>3 seconds</b></div><div class="setting"><span>Login to Logout waiting time</span><b>8 Hours</b></div>
+<div class="setting"><span>Keep activity history</span><input id="keepActivity" type="checkbox" ${s.keepActivity!==false?'checked':''}></div><div class="setting"><span>Admin password protection</span><b>ON</b></div><div class="setting"><span>New 4-digit password</span><input id="newPassword" type="password" maxlength="4" inputmode="numeric" placeholder="New PIN"></div></div>
+<div class="settingbox"><h3>USER DATA TRANSFER</h3><p style="font-size:11px;color:var(--muted);line-height:1.5;margin:0 0 10px">Transfer all registered employee details, photos and face recognition data to another AccessOne device. Existing users on this device will not be overwritten.</p><div class="setting"><span>Export All Users (.json)</span><button onclick="exportAllUsersJSON()">EXPORT</button></div><div class="setting"><span>Import All Users (.json)</span><button onclick="$('importUsersFile').click()">IMPORT</button></div><input id="importUsersFile" type="file" accept=".json,application/json" style="display:none" onchange="importAllUsersJSON(event)"></div><div class="settingbox"><h3>DATA & MAINTENANCE</h3><div class="setting"><span>All data delete</span><button onclick="deleteAll()">DELETE</button></div><div class="setting"><span>Reset default settings</span><button onclick="resetSettings()">RESET</button></div><div class="setting"><span>All data export</span><button onclick="exportBackup()">EXPORT</button></div><div class="setting"><span>Save settings</span><button onclick="saveSettings()">SAVE</button></div></div>
+`}
+async function saveSettings(){let th=Number($('threshold').value);if(th<.3||th>.65){msg('Threshold range: 0.30 to 0.65');return}state.settings={showPhoto:$('showPhoto').checked,threshold:th,keepActivity:$('keepActivity').checked};let p=$('newPassword').value;if(p){if(!/^\d{4}$/.test(p)){msg('Password must be 4 digits');return}state.password=p;log('Admin password changed','Admin')}await save();hide('settings');log('Admin settings changed','Admin');msg('Settings saved')}
+async function resetSettings(){if(!confirm('Reset default settings and password? User records remain.'))return;state.settings={};state.password=DEFAULT;await save();drawSettings();log('Default settings restored','Admin');msg('Default settings restored')}
+async function deleteAll(){if(!confirm('Delete ALL users, face data, successful/failed access and activity?'))return;await clearUsers();users=[];state={access:[],failed:[],activities:[],verifications:[],settings:{},password:DEFAULT};await save();hide('settings');renderAll();log('All application data deleted','Admin');msg('All data deleted')}
+function fileDownload(blob,name){let a=document.createElement('a'),u=URL.createObjectURL(blob);a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),3000)}
+function currentSuccessfulRows(d=date()){
+ let records=state.access.filter(x=>x.date===d),ids=[...new Set(records.map(x=>x.id))];
+ return ids.map(id=>{
+  let ev=records.filter(x=>x.id===id),u=ev.find(x=>x.type==='IN')||ev[0],inn=ev.find(x=>x.type==='IN'),out=ev.find(x=>x.type==='OUT');
+  return [u.name||'',u.id||'',u.designation||'',u.company||'',inn?inn.date:'',inn?inn.time:'',out?out.date:'',out?out.time:''];
+ }).sort((a,b)=>(a[0]||'').localeCompare(b[0]||''));
+}
+function currentFailureRows(d=date()){
+ return state.failed.filter(x=>x.date===d).map(x=>[
+  x.name||'Unknown Person',x.id||'—',x.designation||'—',x.company||'—',x.date||d,x.time||'',x.reason||'Face not matched'
+ ]);
+}
+function exportTableExcel(headers,rows,name,sheet){
+ if(!window.XLSX){msg('Excel library unavailable. Check internet connection.');return}
+ let wb=XLSX.utils.book_new(),ws=XLSX.utils.aoa_to_sheet([headers,...rows]);
+ ws['!cols']=headers.map(h=>({wch:Math.max(14,Math.min(26,h.length+5))}));
+ XLSX.utils.book_append_sheet(wb,ws,sheet);
+ fileDownload(new Blob([XLSX.write(wb,{bookType:'xlsx',type:'array'})]),name+'.xlsx');
+}
+
+
+function exportTablePDF(title, headers, rows, name) {
+    if (!window.jspdf || !window.jspdf.jsPDF) {
+        msg('PDF library unavailable. Check internet connection.');
+        return;
+    }
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF({
+        orientation: 'landscape',
+        unit: 'mm',
+        format: 'a4'
+    });
+
+    const margin = 10;
+    const pageW = 297;
+    const usableW = pageW - margin * 2;
+
+    // All Users PDF column widths
+    const allUsersWidths = {
+        'Name': 24,
+        'ID No': 19,
+        'Designation': 25,
+        'Company': 27,
+        'Gender': 13,
+        'DOB': 17,
+        'Mobile': 22,
+        'Email': 48,
+        'City': 25,
+        'State': 20,
+        'Created Date': 27
+    };
+
+    let widths = headers.map(h => allUsersWidths[h] || 0);
+
+    // Other reports: distribute remaining width equally
+    if (widths.some(w => !w)) {
+        widths = headers.map(() => usableW / headers.length);
+    }
+
+    // Scale columns to fit page
+    const totalWidth = widths.reduce((a, b) => a + b, 0);
+    widths = widths.map(w => w * usableW / totalWidth);
+
+    const top = 29;
+    const headerH = 11;
+    let y = top;
+
+    function drawHeader() {
+        doc.setFillColor(22, 58, 88);
+        doc.rect(margin, y, usableW, headerH, 'F');
+
+        doc.setFontSize(7);
+        doc.setTextColor(255, 255, 255);
+        doc.setFont(undefined, 'bold');
+
+        let x = margin;
+
+        headers.forEach((h, i) => {
+            const lines = doc.splitTextToSize(
+                String(h),
+                widths[i] - 4
+            );
+
+            doc.text(lines, x + 2, y + 4);
+            x += widths[i];
+        });
+
+        doc.setTextColor(20, 30, 40);
+        doc.setFont(undefined, 'normal');
+
+        y += headerH;
+    }
+
+    function drawTitle() {
+        doc.setFontSize(15);
+        doc.text(title, margin, 13);
+
+        doc.setFontSize(8);
+        doc.text(
+            'Generated: ' + new Date().toLocaleString(),
+            margin,
+            20
+        );
+    }
+
+    drawTitle();
+    drawHeader();
+
+    rows.forEach(row => {
+        const cellLines = row.map((value, i) =>
+            doc.splitTextToSize(
+                String(value ?? ''),
+                widths[i] - 4
+            )
+        );
+
+        const maxLines = Math.max(
+            1,
+            ...cellLines.map(lines => lines.length)
+        );
+
+        const rowH = Math.max(9, maxLines * 3.5 + 4);
+
+        if (y + rowH > 200) {
+            doc.addPage();
+            y = top;
+            drawHeader();
+        }
+
+        doc.setDrawColor(190, 205, 218);
+        doc.rect(margin, y, usableW, rowH);
+
+        let x = margin;
+
+        cellLines.forEach((lines, i) => {
+            doc.setFontSize(7);
+            doc.text(lines, x + 2, y + 4);
+            x += widths[i];
+        });
+
+        y += rowH;
+    });
+
+    if (!rows.length) {
+        doc.text('No records available.', margin, y + 5);
+    }
+
+    doc.save(name + '.pdf');
+}
+
+function exportAccessExcel(d=date()){downloadDate(d,'excel')}
+function exportAccessPDF(d=date()){downloadDate(d,'pdf')}
+function userExportRows(){return users.map(u=>[u.name||'',u.id||'',u.designation||'',u.company||'',u.gender||'',u.dob||'',u.mobile||'',u.email||'',u.city||'',u.state||'',u.createdDate||''])}
+function exportUsersExcel(){if(!users.length){msg('No registered users to export');return}exportTableExcel(['Name','ID No','Designation','Company','Gender','DOB','Mobile','Email','City','State','Created Date'],userExportRows(),'FaceScan-All-Users','Users');log('All user list exported as Excel','Admin')}
+function exportUsersPDF(){if(!users.length){msg('No registered users to export');return}exportTablePDF('FaceScan All Users',['Name','ID No','Designation','Company','Gender','DOB','Mobile','Email','City','State','Created Date'],userExportRows(),'FaceScan-All-Users');log('All user list exported as PDF','Admin')}
+function exportBackup(){let payload={users,access:state.access,failed:state.failed,activities:state.activities,verifications:state.verifications||[],settings:state.settings};fileDownload(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),'FaceScan-Backup.json');log('All data exported','Admin')}
+function exportAllUsersJSON(){if(!users.length){msg('No registered users to export');return}const payload={app:'AccessOne',type:'AccessOne-Users-Transfer',version:1,exportedAt:new Date().toISOString(),users};fileDownload(new Blob([JSON.stringify(payload)],{type:'application/json'}),'AccessOne-All-Users-'+date()+'.json');msg('All user data exported');}
+async function importAllUsersJSON(event){const input=event.target,file=input.files&&input.files[0];if(!file)return;try{const raw=JSON.parse(await file.text());if(!raw||raw.app!=='AccessOne'||raw.type!=='AccessOne-Users-Transfer'||!Array.isArray(raw.users))throw new Error('This is not a valid AccessOne Users export file.');if(!raw.users.length)throw new Error('The selected file contains no users.');const existing=new Set(users.map(u=>String(u.id||'').trim().toLowerCase()).filter(Boolean));const incoming=new Set();const valid=[];let duplicate=0,invalid=0;for(const u of raw.users){if(!u||typeof u!=='object'||!String(u.id||'').trim()||!String(u.name||'').trim()||!Array.isArray(u.descriptor)||u.descriptor.length!==128||!u.descriptor.every(n=>Number.isFinite(Number(n)))){invalid++;continue}const key=String(u.id).trim().toLowerCase();if(existing.has(key)||incoming.has(key)){duplicate++;continue}incoming.add(key);valid.push({...u,id:String(u.id).trim(),descriptor:u.descriptor.map(Number)});}if(!valid.length){msg('No new valid users to import. Duplicates: '+duplicate+', invalid: '+invalid);return}if(!confirm('Import '+valid.length+' new user(s)? Existing users will not be changed or deleted.'))return;for(const u of valid)await putUser(u);users=await allUsers();renderAll();drawSettings();msg('Imported '+valid.length+' user(s). Duplicates skipped: '+duplicate+'. Invalid skipped: '+invalid+'.');}catch(e){msg('Import failed: '+e.message)}finally{input.value='';}}
+init();
+</script>
+</body></html>

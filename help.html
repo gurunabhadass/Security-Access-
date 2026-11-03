@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#081322">
+<title>Help & User Guide | AccessOne</title>
+<style>
+:root{--bg:#081322;--panel:#10243a;--panel2:#142c46;--line:#29445e;--txt:#eff7ff;--muted:#a0b3c8;--blue:#279fff;--cyan:#5be0f2;--green:#22d6a2;--red:#ff7187}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% -10%,#173b60,transparent 48%),var(--bg);color:var(--txt);font-family:Arial,sans-serif;line-height:1.65}
+header{position:sticky;top:0;z-index:10;background:#081322ed;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:13px 16px;display:flex;align-items:center;gap:11px}
+.back{width:39px;height:39px;border:1px solid var(--line);border-radius:11px;background:var(--panel2);color:white;font-size:20px;cursor:pointer}
+.brand{font-size:21px;font-weight:800;letter-spacing:.2px}.brand span{color:var(--cyan)}
+main{width:min(100% - 26px,850px);margin:20px auto 48px}
+.hero{padding:23px 20px;border:1px solid #315372;border-radius:20px;background:linear-gradient(135deg,#153a5a,#10243a);box-shadow:0 14px 35px #0003}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:1.8px;color:var(--cyan);text-transform:uppercase}
+h1{font-size:29px;line-height:1.2;margin:7px 0 8px}.hero p{margin:0;color:#c5d8e9;font-size:14px}
+.quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:14px 0}
+.quick a{padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#10243a;color:#cdeaff;text-decoration:none;font-size:12px;font-weight:700}
+.note{margin:14px 0;padding:13px 15px;border:1px solid #28577a;background:#0d2941;border-radius:13px;color:#c9e9ff;font-size:13px}
+article{margin-top:12px;padding:17px 17px 14px;border:1px solid var(--line);border-radius:16px;background:var(--panel);scroll-margin-top:78px}
+h2{font-size:17px;margin:0 0 9px;color:#8bdfff}h3{font-size:14px;margin:14px 0 5px;color:#c7eaff}
+p,ul,ol{margin:7px 0;color:#d6e2ee;font-size:13.5px}ul,ol{padding-left:20px}li{padding:3px 0}
+strong{color:white}.pill{display:inline-block;padding:3px 8px;border-radius:20px;background:#173b5a;color:#a9e1ff;font-size:11px;font-weight:800}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:12px}td,th{border:1px solid #31506d;padding:8px;text-align:left;vertical-align:top}th{background:#17334e;color:#bdeaff}td{color:#d6e2ee}
+.warning{border-left:3px solid #f5ba59;padding:8px 11px;background:#392f20;border-radius:7px;color:#ffe5b2;font-size:12px;margin:10px 0}
+.success{border-left:3px solid var(--green);padding:8px 11px;background:#10372f;border-radius:7px;color:#c4ffec;font-size:12px;margin:10px 0}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px 4px}
+@media(min-width:650px){main{margin-top:28px}.hero{padding:30px}.quick{grid-template-columns:repeat(3,minmax(0,1fr))}h1{font-size:33px}}
+</style>
+</head>
+<body>
+<header>
+<button class="back" onclick="history.length>1?history.back():location.href='./index.html'" aria-label="Go back">‹</button>
+<div class="brand">Access<span>One</span></div>
+</header>
+<main>
+<section class="hero">
+<div class="eyebrow">AccessOne • Help Center</div>
+<h1>Help &amp; User Guide</h1>
+<p>Read this guide to understand AccessOne features, options, and daily usage.</p>
+</section>
+
+<nav class="quick" aria-label="Help topics">
+<a href="#overview">1. Overview</a><a href="#scan">2. Scan &amp; Verification</a><a href="#access">3. Access Rules</a><a href="#activity">4. Activity</a><a href="#admin">5. Admin &amp; Users</a><a href="#settings">6. Settings</a><a href="#transfer">7. Import / Export</a><a href="#reports">8. Reports</a><a href="#pwa">9. Install App</a><a href="#troubleshoot">10. Troubleshooting</a>
+</nav>
+
+<div class="note"><strong>Important:</strong> The current AccessOne setup is local-device based. Employee data stays in the browser storage of each device. Import/Export can copy employee profiles to another device, but live Login/Logout status and history are not automatically synced between devices.</div>
+
+<article id="overview">
+<h2>1. What is AccessOne?</h2>
+<p>AccessOne is an employee face-recognition and access-recording app. It is used to verify registered employees through face scans and maintain their Login/Logout records.</p>
+<table><tr><th>Feature</th><th>Kaam</th></tr>
+<tr><td>Face Scan</td><td>Identifies a registered employee using the camera.</td></tr>
+<tr><td>Access</td><td>Displays successful Login/Logout records and failed access attempts.</td></tr>
+<tr><td>Verification</td><td>Tests an employee face match without performing Login or Logout.</td></tr>
+<tr><td>Activity</td><td>Displays a timeline of scan-related app events.</td></tr>
+<tr><td>Admin</td><td>Employee registration, user management, reports, and settings.</td></tr>
+<tr><td>Local Import/Export</td><td>Transfers registered employee profiles to another device using a file.</td></tr></table>
+</article>
+
+<article id="scan">
+<h2>2. Scan Tab – How to perform a face scan</h2>
+<h3>A. Login / Logout Access Scan</h3>
+<ol>
+<li>Open the <strong>Scan</strong> tab from the bottom navigation.</li>
+<li>Tap the “Login Or Logout” scan area.</li>
+<li>Allow camera permission when prompted.</li>
+<li>Only one employee should stand in front of the camera, keep their face inside the frame, and look directly at the camera.</li>
+<li>When the face is detected and matched, AccessOne verifies the employee and creates the applicable Login or Logout record.</li>
+</ol>
+<h3>B. Verification button</h3>
+<p>The <strong>Verification</strong> button on the Scan screen is for a test/verification scan. It checks the employee face match and does not change the Access Login/Logout cycle.</p>
+<div class="success">Verification scans can be performed without a daily limit. Successful verification records appear separately in the Verification tab. Failed verification attempts do not appear in the Verification list.</div>
+<h3>C. Camera result</h3>
+<p>After a successful match, the employee photo and available details, such as Name, ID, Designation, and Company, may appear in the result panel. An unknown or unmatched face results in a failed scan.</p>
+</article>
+
+<article id="access">
+<h2>3. Access Tab – Login / Logout Rules</h2>
+<p>The Access tab has two filters: <span class="pill">Successful</span> and <span class="pill">Failed</span>. Records are displayed in date-wise groups.</p>
+<h3>Successful Access ka rule</h3>
+<table><tr><th>Scan</th><th>Result</th></tr>
+<tr><td>Employee’s first successful Access scan</td><td>A Login record is created.</td></tr>
+<tr><td>Next scan before 8 hours have passed since Login</td><td>Logout is not allowed yet. No successful Logout record is created.</td></tr>
+<tr><td>Next eligible scan after 8 hours or more since Login</td><td>A Logout record is created.</td></tr>
+<tr><td>Third or subsequent attempt after 2 successful Access scans on that day</td><td>“Already Scanned” is displayed; no new Access record is saved.</td></tr></table>
+<ul>
+<li>The 8-hour timer is tracked separately for each employee ID.</li>
+<li>One employee’s Login/Logout does not affect another employee’s timer.</li>
+<li>A maximum of 2 successful Access scans are allowed per employee per day: one Login and one Logout.</li>
+<li>Daily auto-reset and auto-download are not enabled. Previous dates’ history remains available date-wise.</li>
+</ul>
+<h3>Successful / Failed list</h3>
+<p><strong>Successful:</strong> The employee’s Login and Logout times may appear in one card. If Logout has not yet occurred, a waiting status may be shown.</p>
+<p><strong>Failed:</strong> If the face does not match, the failed Access attempt may appear here with its date and time. Failed Access records are not included in the successful scan count.</p>
+<h3>Date-wise Download</h3>
+<p>Tap the <strong>Download</strong> button to the right of a date heading. Select Excel or PDF from the menu. Data for the selected date and list (Successful or Failed) will be exported.</p>
+</article>
+
+<article id="activity">
+<h2>4. Activity Tab – Activity and Verification</h2>
+<p>The two tabs/lists in the Activity section serve different purposes.</p>
+<h3>A. Activity</h3>
+<p>A timeline of scan-related events. Depending on the app configuration, it may show successful/failed Access events and Test/Verification scan activity. Each entry may include the date, time, and relative time such as “Just now / min ago / hr ago.”</p>
+<h3>B. Verification</h3>
+<p>This is a separate list of successful Verification/Test scans. Each record shows the registered employee’s face/photo and available details (Name, ID, Designation, Company), followed by the Verified Date and Verified Time.</p>
+<ul>
+<li>A Verification record is not a Login or Logout.</li>
+<li>Verification data remains separate from Access history.</li>
+<li>Failed Verification records are not shown in this list.</li>
+<li>Verification records are grouped by date.</li>
+<li>Use the Download option beside a date to export that date’s Verification report, where Excel/PDF options are available.</li>
+</ul>
+<h3>Clear Activity</h3>
+<p>Using the Clear option on the Activity screen clears the Activity timeline. Review carefully before confirming. This option does not clear Access history or registered employee profiles.</p>
+</article>
+
+<article id="admin">
+<h2>5. Admin Tab – Employee Management</h2>
+<h3>Admin unlock</h3>
+<p>Tap <strong>Admin</strong> in the bottom navigation and enter the 4-digit Admin password. The initial password in the current app setup is <strong>1234</strong>; changing it in Settings before regular use is recommended.</p>
+<h3>Dashboard count boxes</h3>
+<table><tr><th>Box</th><th>Meaning</th></tr>
+<tr><td>Today New Users</td><td>Number of employees registered today.</td></tr>
+<tr><td>Today Authorizations</td><td>Number of successful Access scan records today.</td></tr>
+<tr><td>Total Failure Count</td><td>Total number of stored failed Access records.</td></tr>
+<tr><td>Monthly Successful</td><td>Number of successful Access records in the current month.</td></tr>
+<tr><td>Total All Users</td><td>Total number of registered employee profiles.</td></tr></table>
+<h3>New Employee Registration (+)</h3>
+<ol>
+<li>Tap the + button on the Admin screen.</li>
+<li>Enter the employee’s Name, unique ID, Designation, and Company.</li>
+<li>Select Gender and Date of Birth.</li>
+<li>Enter the Mobile Number and Email.</li>
+<li>Enter the City and State.</li>
+<li>At the Face Scan step, open the camera, keep one face inside the frame, and allow capture/recognition to complete.</li>
+<li>Once the face data is saved, the employee will appear in the All Users list.</li>
+</ol>
+<p><strong>The ID must be unique.</strong> An ID that is already registered cannot be registered again. Face-based matching will not work unless the employee’s face has been captured.</p>
+<h3>All Users list</h3>
+<ul><li>Use the search box to find a user by Name, ID, or Company.</li><li>Tap the employee photo to open a full-size photo preview.</li><li>Use the Edit icon to update employee details/face data.</li><li>The Delete icon removes the selected employee and their face data. Review the confirmation before deleting.</li><li>Use the Excel and PDF buttons to export the All Users list.</li></ul>
+</article>
+
+<article id="settings">
+<h2>6. Settings – What Each Option Does</h2>
+<h3>Admin Panel</h3>
+<ul><li><strong>Show profile photo:</strong> Controls whether the employee photo is displayed, where supported.</li><li><strong>Newest record first:</strong> Controls the list ordering.</li></ul>
+<h3>System Related</h3>
+<ul>
+<li><strong>Face match threshold:</strong> Face-matching sensitivity. A lower threshold may make matching stricter, while a higher threshold may make matching more lenient. Adjust this value carefully.</li>
+<li><strong>Face detection duration:</strong> Configured time for the face detection/capture process.</li>
+<li><strong>Login to Logout waiting time:</strong> The current rule is 8 hours.</li>
+<li><strong>Keep activity history:</strong> Setting for retaining Activity history.</li>
+<li><strong>Admin password protection:</strong> The Admin area is password-protected.</li>
+<li><strong>New 4-digit password:</strong> Enter a new 4-digit Admin PIN and select Save.</li>
+</ul>
+<h3>Data &amp; Maintenance</h3>
+<ul>
+<li><strong>All data delete:</strong> After confirmation, users, face data, Access records, failed records, and Activity data may be deleted. Export or back up required data first.</li>
+<li><strong>Reset default settings:</strong> Resets app settings and the Admin password to their defaults; review the confirmation dialog carefully.</li>
+<li><strong>All data export:</strong> Downloads an application backup JSON file. Store it in a secure location.</li>
+<li><strong>Save settings:</strong> Saves the current settings and new PIN.</li>
+</ul>
+<div class="warning">Do not change the face-match threshold without testing. A setting that is too lenient may increase false matches; a setting that is too strict may reject genuine employees.</div>
+</article>
+
+<article id="transfer">
+<h2>7. Import / Export All Users – How to Transfer Data to Another Device</h2>
+<h3>Device 1: Export</h3>
+<ol><li>Unlock Admin and open Settings.</li><li>In the <strong>USER DATA TRANSFER</strong> section, tap Export All Users (.json).</li><li>The JSON file will be downloaded to the device. It contains registered employee details, photos, and face-recognition descriptors.</li><li>Transfer the file securely to the other device.</li></ol>
+<h3>Device 2: Import</h3>
+<ol><li>Open AccessOne on the other device and unlock Admin.</li><li>Go to Settings → Import All Users (.json).</li><li>Select the AccessOne export JSON file from the device.</li><li>Review the import confirmation and confirm.</li><li>After importing, check the imported employees under Admin → All Users.</li></ol>
+<div class="success">Import does not create duplicate user IDs or overwrite existing profiles; matching IDs are skipped.</div>
+<div class="warning">Import transfers only employee profile/face data. Live Login/Logout status, Access history, Verification history, and Activity history are not automatically transferred or synced to the other device. Each device keeps its own local records.</div>
+</article>
+
+<article id="reports">
+<h2>8. Reports and Download Options</h2>
+<table><tr><th>Location</th><th>Download content</th></tr>
+<tr><td>Access → Successful → Date Download</td><td>Login/Logout details for the selected date.</td></tr>
+<tr><td>Access → Failed → Date Download</td><td>Failed Access records for the selected date.</td></tr>
+<tr><td>Activity → Verification → Date Download</td><td>Successful Verification records for the selected date, if date-wise export is available.</td></tr>
+<tr><td>Admin → All Users → Excel/PDF</td><td>List of registered employee details.</td></tr>
+<tr><td>Settings → All data export</td><td>Local application backup in JSON format.</td></tr>
+<tr><td>Settings → Export All Users</td><td>JSON file for transferring employee profiles and face data.</td></tr></table>
+<p>Store downloaded files in authorized company storage. Employee photos, descriptors, and personal details may be sensitive data.</p>
+</article>
+
+<article id="pwa">
+<h2>9. PWA Installation and App Sharing</h2>
+<h3>Install AccessOne</h3>
+<ol><li>Open the AccessOne website over HTTPS in a supported browser.</li><li>Tap the Download/Install icon in the header.</li><li>Select Install in the installation popup.</li><li>Confirm if the browser displays its native installation prompt.</li></ol>
+<p>Selecting Cancel closes the popup; you can open it again later using the icon. After successful installation, the app may open in standalone mode and the install button may be hidden.</p>
+<h3>Share</h3>
+<p>The Share icon in the header may open the device’s native share panel. The shared link depends on the URL configured in the app.</p>
+<h3>Menu links</h3>
+<p>The three-dot menu can open the About, Privacy, Terms and Conditions, Help, and Version pages. Each link must point to the corresponding HTML page file with the correct filename.</p>
+</article>
+
+<article id="troubleshoot">
+<h2>10. Common Problems and Solutions</h2>
+<h3>Camera does not open</h3><ul><li>Allow Camera permission for AccessOne in your browser settings.</li><li>Open the app over HTTPS or localhost.</li><li>Make sure the camera is not being used by another app. Close other camera apps and try again.</li><li>Reload the page and check the permission again.</li></ul>
+<h3>Face does not match</h3><ul><li>Use good, even lighting; avoid shadows on the face or strong backlighting.</li><li>Clean the camera lens and keep the face in the center of the frame.</li><li>Keep only one person in the frame at a time.</li><li>Verify that the employee’s face was captured properly during profile registration.</li></ul>
+<h3>Face engine/model does not load</h3><p>Initial face-recognition model resources may load from a CDN. Check the internet connection during the first load. Keep the page active after the models load, then try again.</p>
+<h3>“Already Scanned” is displayed</h3><p>Check whether the employee already has 2 successful Access scans recorded today. No additional successful Access record is created after the daily limit is reached.</p>
+<h3>Logout is not available yet</h3><p>Wait until 8 hours have passed since the employee’s Login. Each employee’s timer is calculated separately using their ID. Make sure the device date and time are correct.</p>
+<h3>Imported employee is not matched during scanning</h3><p>Confirm that the correct AccessOne Users JSON file was imported and that the user’s face-recognition descriptor was included. If the employee appears in All Users but the descriptor is invalid or missing, face matching will not work.</p>
+<h3>Data does not appear the same on another device</h3><p>Use Export All Users and Import All Users to transfer employee profiles. This is not live multi-device sync. Each device keeps its Access/Activity history locally and separately.</p>
+<h3>Report does not download</h3><p>Check browser download permissions and available storage. Required libraries must load for Excel/PDF exports; check the internet connection and reload the page.</p>
+</article>
+
+<article>
+<h2>11. Privacy, Safety, and Good Practices</h2>
+<ul><li>Use face data and employee details only for authorized workplace purposes.</li><li>Inform employees about the organization’s privacy policy and data-use process.</li><li>Keep the Admin PIN confidential.</li><li>Do not send exported JSON/backup files through public chats, public shared folders, or to unknown devices.</li><li>Verify records before making official attendance/payroll decisions, and maintain a manual correction process where necessary.</li><li>Create a backup/export before a device is lost, shared, reset, or its browser data is cleared.</li></ul>
+</article>
+
+<article>
+    <h2>12.App Information</h2>
+    <ul class="app-information">
+  <li><strong>App Name:</strong> AccessOne</li>
+  <li><strong>Developer:</strong> Suva Oscar</li>
+  <li><strong>Version:</strong> 1.0.0</li>
+  <li><strong>Category:</strong> Access Control &amp; Attendance</li>
+  <li><strong>App Type:</strong> Employee Face Recognition</li>
+  <li><strong>Data Storage:</strong> Local Device Storage</li>
+</ul>
+    
+</article>
+
+<footer>AccessOne Help Center • Keep this guide available to authorized users.</footer>
+</main>
+</body>
+</html>
