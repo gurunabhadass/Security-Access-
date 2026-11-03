@@ -1,0 +1,210 @@
+name: Build AccessOne APK
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "index.html"
+      - "about.html"
+      - "help.html"
+      - "privacy.html"
+      - "terms.html"
+      - "manifest.json"
+      - "service.worker.js"
+      - "logo.png"
+      - "logo-192.png"
+      - "logo-512.png"
+      - ".github/workflows/build-apk.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Install Android SDK packages
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
+            "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Prepare website files directly from repository root
+        run: |
+          mkdir -p www
+          cp index.html about.html help.html privacy.html terms.html manifest.json service.worker.js logo.png logo-192.png logo-512.png www/
+          test -s www/index.html
+          test -s www/logo.png
+          test -s www/logo-512.png
+
+      - name: Create Capacitor Android project
+        run: |
+          npm init -y
+          npm install @capacitor/core @capacitor/android @capacitor/app @capacitor/status-bar
+          npm install --save-dev @capacitor/cli @capacitor/assets esbuild
+          cat > capacitor.config.json <<'CAPEOF'
+          {
+            "appId": "com.accessone.app",
+            "appName": "AccessOne",
+            "webDir": "www",
+            "bundledWebRuntime": false,
+            "backgroundColor": "#081322",
+            "android": {
+              "backgroundColor": "#081322",
+              "allowMixedContent": false
+            },
+            "plugins": {
+              "StatusBar": {
+                "overlaysWebView": false,
+                "style": "LIGHT",
+                "backgroundColor": "#081322"
+              }
+            }
+          }
+          CAPEOF
+          npx cap add android
+
+      - name: Apply the supplied AccessOne logo to Android icons
+        run: |
+          mkdir -p resources
+          cp logo-512.png resources/icon.png
+          cp logo-512.png resources/splash.png
+          npx capacitor-assets generate --android
+
+      - name: Add Android back-button and normal-screen handling
+        run: |
+          mkdir -p native-src
+          cat > native-src/accessone-back.js <<'JSEOF'
+          import { App } from '@capacitor/app';
+          import { StatusBar, Style } from '@capacitor/status-bar';
+
+          let lastBackPress = 0;
+          let exitTimer;
+
+          function closeTopLayer() {
+            const imageView = document.getElementById('imageView');
+            if (imageView?.classList.contains('show')) {
+              if (typeof window.closeImage === 'function') window.closeImage();
+              else imageView.classList.remove('show');
+              return true;
+            }
+
+            const camera = document.getElementById('cam');
+            if (camera?.classList.contains('show')) {
+              if (typeof window.closeCamera === 'function') window.closeCamera();
+              else camera.classList.remove('show');
+              return true;
+            }
+
+            const visibleLayers = [...document.querySelectorAll('.modal.show, .popup.show, .panel.show, .menu.open, .download-menu.show')]
+              .filter(el => getComputedStyle(el).display !== 'none' && getComputedStyle(el).visibility !== 'hidden')
+              .sort((a, b) => Number(getComputedStyle(b).zIndex || 0) - Number(getComputedStyle(a).zIndex || 0));
+            if (visibleLayers.length) {
+              const layer = visibleLayers[0];
+              if (layer.id && typeof window.hide === 'function') window.hide(layer.id);
+              else layer.classList.remove('show', 'open');
+              return true;
+            }
+
+            return false;
+          }
+
+          App.addListener('backButton', () => {
+            if (closeTopLayer()) {
+              lastBackPress = 0;
+              clearTimeout(exitTimer);
+              return;
+            }
+
+            // Any standalone in-app page (About, Help, Privacy, Terms, or another local page)
+            // returns to the main Scan screen instead of exiting the app.
+            const currentFile = location.pathname.split('/').pop();
+            if (currentFile && currentFile !== 'index.html') {
+              location.replace('./index.html');
+              return;
+            }
+
+            const activeSection = document.querySelector('main section.active');
+            if (!activeSection || activeSection.id !== 'scan') {
+              if (typeof window.go === 'function') window.go('scan');
+              else location.replace('./index.html');
+              lastBackPress = 0;
+              clearTimeout(exitTimer);
+              return;
+            }
+
+            const now = Date.now();
+            if (now - lastBackPress <= 2000) {
+              clearTimeout(exitTimer);
+              App.exitApp();
+              return;
+            }
+
+            lastBackPress = now;
+            if (typeof window.msg === 'function') window.msg('Press back again to exit');
+            exitTimer = setTimeout(() => { lastBackPress = 0; }, 2000);
+          });
+
+          document.addEventListener('DOMContentLoaded', async () => {
+            try {
+              await StatusBar.setOverlaysWebView({ overlay: false });
+              await StatusBar.setStyle({ style: Style.Light });
+              await StatusBar.setBackgroundColor({ color: '#081322' });
+              await StatusBar.show();
+            } catch (_) {}
+          });
+          JSEOF
+          npx esbuild native-src/accessone-back.js --bundle --format=esm --outfile=www/accessone-back.js
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('www/index.html')
+          html = p.read_text(encoding='utf-8')
+          tag = '<script type="module" src="./accessone-back.js"></script>'
+          if tag not in html:
+              if '</body>' not in html:
+                  raise SystemExit('Could not find </body> in index.html')
+              html = html.replace('</body>', tag + '</body>', 1)
+          p.write_text(html, encoding='utf-8')
+          PY
+          npx cap sync android
+
+      - name: Keep Android status and navigation bars visible
+        run: |
+          # Use target SDK 34 so Android 15 does not force edge-to-edge layout.
+          if [ -f android/variables.gradle ]; then
+            sed -i 's/targetSdkVersion = 35/targetSdkVersion = 34/' android/variables.gradle
+          fi
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('android/app/src/main/AndroidManifest.xml')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('android:windowFullscreen="true"', '')
+          s = s.replace('android:immersive="true"', '')
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Build debug APK
+        working-directory: android
+        run: ./gradlew assembleDebug
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AccessOne-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          
